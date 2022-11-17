@@ -4,6 +4,7 @@
  */
 package view;
 
+import model.circulo;
 import model.d1;
 import model.ponto;
 
@@ -13,8 +14,9 @@ import model.ponto;
  */
 public class FrMain extends javax.swing.JFrame {
 
-    public int opcaoSelecionada; //1-PONTO || 2-RETA
+    public int opcaoSelecionada; //1-PONTO || 2-RETA || 3-CIRCULO
     d1 d = new d1();
+    circulo c = new circulo();
     /**
      * Creates new form FrMain
      */
@@ -137,6 +139,11 @@ public class FrMain extends javax.swing.JFrame {
         jLabel2.setText("Cor Secundária");
 
         jButton3.setText("Círculo");
+        jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton3MouseClicked(evt);
+            }
+        });
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
@@ -240,6 +247,12 @@ public class FrMain extends javax.swing.JFrame {
           d.y = evt.getY();
         
         }
+        if(opcaoSelecionada == 3){
+            c.corPrimaria = jCorPrincipal.getBackground();
+            c.corInterna = jCorSecundaria.getBackground();
+            c.x = evt.getX();
+            c.y = evt.getY();
+        }
     }//GEN-LAST:event_jFrameDesenhoMousePressed
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
@@ -256,11 +269,21 @@ public class FrMain extends javax.swing.JFrame {
            d.y1 = evt.getY();
            d.desenhar(jFrameDesenho.getGraphics());
         }
+        
+        if(opcaoSelecionada == 3){
+            c.x1 = evt.getX();
+            c.y1 = evt.getY();
+            c.desenhar(jFrameDesenho.getGraphics());
+        }
     }//GEN-LAST:event_jFrameDesenhoMouseReleased
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
+        opcaoSelecionada = 3;
+    }//GEN-LAST:event_jButton3MouseClicked
 
     /**
      * @param args the command line arguments
