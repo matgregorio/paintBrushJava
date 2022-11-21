@@ -17,5 +17,7 @@ public class PaintBrush {
         FrMain fr = new FrMain();
         fr.setLocationRelativeTo(null);
         fr.setVisible(true);
+        
+        //apenas teste
     }
 }
