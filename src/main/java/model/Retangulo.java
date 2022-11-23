@@ -10,15 +10,25 @@ import java.awt.Graphics;
  *
  * @author mateus
  */
-public class d1 extends ponto{
-    public int x1;
-    public int y1;
-    ponto p1;
+public class Retangulo extends D2{
+    public int base,largura;
+    @Override
+    public float area() {
+        return base * largura;
+    }
+
+    @Override
+    public float perimetro() {
+        return 2*(base+largura);
+    }
     
     @Override
     public void desenhar(Graphics g){
+       super.desenhar(g);
+       g.setColor(corInterna);
+       g.fillRect(x, y, base, largura);
        g.setColor(corPrimaria);
-       g.drawLine(x, y, x1, y1);
+       g.drawRect(x, y, base, largura);
     }
     
 }

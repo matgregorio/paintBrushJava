@@ -11,7 +11,7 @@ import java.awt.Graphics;
  *
  * @author mateus
  */
-public class ponto {
+public class Ponto {
     public int x;
     public int y;
     public Color corPrimaria;

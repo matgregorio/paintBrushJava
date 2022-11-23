@@ -4,9 +4,11 @@
  */
 package view;
 
-import model.circulo;
-import model.d1;
-import model.ponto;
+import model.Circulo;
+import model.D2;
+import model.Ponto;
+import model.Reta;
+import model.Retangulo;
 
 /**
  *
@@ -14,9 +16,10 @@ import model.ponto;
  */
 public class FrMain extends javax.swing.JFrame {
 
-    public int opcaoSelecionada; //1-PONTO || 2-RETA || 3-CIRCULO
-    d1 d = new d1();
-    circulo c = new circulo();
+    public int opcaoSelecionada; //1-PONTO || 2-RETA || 3-CIRCULO|| 4-RETANGULO
+    Retangulo r = new Retangulo();
+    Circulo c = new Circulo();
+    Reta re = new Reta();
     /**
      * Creates new form FrMain
      */
@@ -34,14 +37,15 @@ public class FrMain extends javax.swing.JFrame {
     private void initComponents() {
 
         jFrameDesenho = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btnPonto = new javax.swing.JButton();
+        btnReta = new javax.swing.JButton();
         jCorPrincipal = new javax.swing.JPanel();
         jCorSecundaria = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jColorChooser1 = new javax.swing.JColorChooser();
-        jButton3 = new javax.swing.JButton();
+        btnCirculo = new javax.swing.JButton();
+        btnRetangulo = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -74,27 +78,27 @@ public class FrMain extends javax.swing.JFrame {
             .addGap(0, 198, Short.MAX_VALUE)
         );
 
-        jButton1.setText("Ponto");
-        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnPonto.setText("Ponto");
+        btnPonto.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton1MouseClicked(evt);
+                btnPontoMouseClicked(evt);
             }
         });
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnPonto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnPontoActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Reta");
-        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnReta.setText("Reta");
+        btnReta.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton2MouseClicked(evt);
+                btnRetaMouseClicked(evt);
             }
         });
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btnReta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btnRetaActionPerformed(evt);
             }
         });
 
@@ -138,15 +142,22 @@ public class FrMain extends javax.swing.JFrame {
 
         jLabel2.setText("Cor Secundária");
 
-        jButton3.setText("Círculo");
-        jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnCirculo.setText("Círculo");
+        btnCirculo.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton3MouseClicked(evt);
+                btnCirculoMouseClicked(evt);
             }
         });
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        btnCirculo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                btnCirculoActionPerformed(evt);
+            }
+        });
+
+        btnRetangulo.setText("Retangulo");
+        btnRetangulo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRetanguloActionPerformed(evt);
             }
         });
 
@@ -157,14 +168,15 @@ public class FrMain extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(36, 36, 36)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2)
-                    .addComponent(jButton3))
-                .addGap(108, 108, 108)
+                    .addComponent(btnPonto)
+                    .addComponent(btnReta)
+                    .addComponent(btnCirculo)
+                    .addComponent(btnRetangulo))
+                .addGap(101, 101, 101)
                 .addComponent(jFrameDesenho, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(15, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel2)
@@ -183,11 +195,13 @@ public class FrMain extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jButton1)
+                .addComponent(btnPonto)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton2)
+                .addComponent(btnReta)
                 .addGap(18, 18, 18)
-                .addComponent(jButton3)
+                .addComponent(btnCirculo)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnRetangulo)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)
@@ -210,17 +224,17 @@ public class FrMain extends javax.swing.JFrame {
         setBounds(0, 0, 1057, 558);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void btnRetaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRetaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_btnRetaActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnPontoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPontoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnPontoActionPerformed
 
-    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+    private void btnPontoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPontoMouseClicked
         opcaoSelecionada = 1;
-    }//GEN-LAST:event_jButton1MouseClicked
+    }//GEN-LAST:event_btnPontoMouseClicked
 
     private void jCorPrincipalMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jCorPrincipalMouseClicked
         jCorPrincipal.setBackground(jColorChooser1.getColor());
@@ -232,7 +246,7 @@ public class FrMain extends javax.swing.JFrame {
 
     private void jFrameDesenhoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jFrameDesenhoMouseClicked
         if(opcaoSelecionada == 1){
-            ponto p = new ponto();
+            Ponto p = new Ponto();
             p.corPrimaria = jCorPrincipal.getBackground();
             p.x = evt.getX();
             p.y = evt.getY();
@@ -242,9 +256,9 @@ public class FrMain extends javax.swing.JFrame {
 
     private void jFrameDesenhoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jFrameDesenhoMousePressed
         if(opcaoSelecionada == 2){ 
-          d.corPrimaria = jCorPrincipal.getBackground();
-          d.x = evt.getX();
-          d.y = evt.getY();
+          re.corPrimaria = jCorPrincipal.getBackground();
+          re.x = evt.getX();
+          re.y = evt.getY();
         
         }
         if(opcaoSelecionada == 3){
@@ -253,11 +267,17 @@ public class FrMain extends javax.swing.JFrame {
             c.x = evt.getX();
             c.y = evt.getY();
         }
+        if(opcaoSelecionada == 4){
+            r.corPrimaria = jCorPrincipal.getBackground();
+            r.corInterna = jCorSecundaria.getBackground();
+            r.x = evt.getX();
+            r.y = evt.getY();
+        }
     }//GEN-LAST:event_jFrameDesenhoMousePressed
 
-    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
+    private void btnRetaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRetaMouseClicked
         opcaoSelecionada = 2;
-    }//GEN-LAST:event_jButton2MouseClicked
+    }//GEN-LAST:event_btnRetaMouseClicked
 
     private void jFrameDesenhoMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jFrameDesenhoMouseDragged
 
@@ -265,25 +285,37 @@ public class FrMain extends javax.swing.JFrame {
 
     private void jFrameDesenhoMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jFrameDesenhoMouseReleased
         if(opcaoSelecionada == 2){
-           d.x1 = evt.getX();
-           d.y1 = evt.getY();
-           d.desenhar(jFrameDesenho.getGraphics());
+           re.x1 = evt.getX();
+           re.y1 = evt.getY();
+           re.desenhar(jFrameDesenho.getGraphics());
         }
         
-        if(opcaoSelecionada == 3){
-            c.x1 = evt.getX();
-            c.y1 = evt.getY();
-            c.desenhar(jFrameDesenho.getGraphics());
+//        if(opcaoSelecionada == 3){
+//            c.x1 = evt.getX();
+//            c.y1 = evt.getY();
+//            c.desenhar(jFrameDesenho.getGraphics());
+//        }
+        
+        if(opcaoSelecionada == 4){
+            r.base = evt.getX() - r.x;
+            r.largura = evt.getY() - r.y;
+            r.corInterna = jCorSecundaria.getBackground();
+            r.corPrimaria = jCorPrincipal.getBackground();
+            r.desenhar(jFrameDesenho.getGraphics());
         }
     }//GEN-LAST:event_jFrameDesenhoMouseReleased
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void btnCirculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCirculoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_btnCirculoActionPerformed
 
-    private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
+    private void btnCirculoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCirculoMouseClicked
         opcaoSelecionada = 3;
-    }//GEN-LAST:event_jButton3MouseClicked
+    }//GEN-LAST:event_btnCirculoMouseClicked
+
+    private void btnRetanguloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRetanguloActionPerformed
+        opcaoSelecionada = 4;// TODO add your handling code here:
+    }//GEN-LAST:event_btnRetanguloActionPerformed
 
     /**
      * @param args the command line arguments
@@ -321,9 +353,10 @@ public class FrMain extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton btnCirculo;
+    private javax.swing.JButton btnPonto;
+    private javax.swing.JButton btnReta;
+    private javax.swing.JButton btnRetangulo;
     private javax.swing.JColorChooser jColorChooser1;
     private javax.swing.JPanel jCorPrincipal;
     private javax.swing.JPanel jCorSecundaria;

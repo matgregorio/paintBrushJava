@@ -11,15 +11,17 @@ import java.awt.Graphics;
  *
  * @author mateus
  */
-public class circulo extends d1{
-    d1 dimensao1;
+abstract public class D2 extends Ponto{
     public Color corInterna;
+    public boolean showArea = false;
+    abstract public float area();
+    abstract public float perimetro();
     
+    @Override
     public void desenhar(Graphics g){
         g.setColor(corPrimaria);
-        g.drawOval(x, y, x1, y1);
-        g.setColor(corInterna);
-        g.fillOval(x, y, x1, y1);
+        g.drawString(Float.toString(area()), x, y);
     }
+    
     
 }
