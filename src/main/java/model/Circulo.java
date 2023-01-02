@@ -17,20 +17,22 @@ public class Circulo extends D2{
     public float diametro;
     @Override
     public void desenhar(Graphics g){
+        super.desenhar(g);
         g.setColor(corPrimaria);
-        g.drawOval(x, y, x, y);
+        g.drawOval(x, y,(int) raio,(int) diametro);
         g.setColor(corInterna);
-        g.fillOval(x, y, x, y);
+        g.fillOval(x, y,(int) raio,(int) diametro);
     }
 
     @Override
     public float area() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        float retorno = (float) (Math.PI*raio*raio);         
+        return retorno;
     }
 
     @Override
     public float perimetro() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return (float) (2*Math.PI * raio);
     }
     
 }

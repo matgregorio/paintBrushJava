@@ -15,7 +15,7 @@ public class Reta extends D2{
     
     @Override
     public float area() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return 0;
     }
 
     @Override
@@ -27,7 +27,7 @@ public class Reta extends D2{
     public void desenhar(Graphics g){
        super.desenhar(g);
        g.setColor(corPrimaria);
-       g.fillRect(x, x1, y, y1);
+       g.drawRect(x, y ,x1 - x, 1);
     }
     
     

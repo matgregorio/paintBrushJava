@@ -19,8 +19,10 @@ abstract public class D2 extends Ponto{
     
     @Override
     public void desenhar(Graphics g){
-        g.setColor(corPrimaria);
-        g.drawString(Float.toString(area()), x, y);
+        if(showArea){
+        g.setColor(Color.BLACK);
+        g.drawString("Area: "+ Float.toString(area())+ " Perímetro: " + Float.toString(perimetro()), x, y);
+        }
     }
     
     
