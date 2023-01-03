@@ -26,8 +26,7 @@ public class Reta extends D2{
     @Override
     public void desenhar(Graphics g){
        super.desenhar(g);
-       g.setColor(corPrimaria);
-       g.drawRect(x, y ,x1 - x, 1);
+       g.drawLine(x, y, x1, y1);
     }
     
     

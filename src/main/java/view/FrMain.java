@@ -14,7 +14,7 @@ import model.Poligono;
 import model.Ponto;
 import model.Reta;
 import model.Retangulo;
-import model.Triangulo;
+import model.Piramide;
 
 /**
  *
@@ -22,7 +22,7 @@ import model.Triangulo;
  */
 public class FrMain extends javax.swing.JFrame {
 
-    public int opcaoSelecionada = 0; //1-PONTO || 2-RETA || 3-CIRCULO|| 4-RETANGULO || 5 - BORRACHA || 6 - SPRAY || 7 - Cilindro || 8 - Poligono || 9 - Triangulo
+    public int opcaoSelecionada = 0; //1-PONTO || 2-RETA || 3-CIRCULO|| 4-RETANGULO || 5 - BORRACHA || 6 - SPRAY || 7 - Cilindro || 8 - Poligono || 9 - Piramide
     Retangulo retangulo = new Retangulo();
     Circulo circulo = new Circulo();
     Reta reta = new Reta();
@@ -30,14 +30,14 @@ public class FrMain extends javax.swing.JFrame {
     Ponto ponto = new Ponto();
     Cilindro cilindro = new Cilindro();
     Poligono poligono = new Poligono();
-    Triangulo triangulo = new Triangulo();
+    Piramide piramide = new Piramide();
 
     /**
      * Creates new form FrMain
      */
     public FrMain() {
         initComponents();
-        Color amarelo = new Color(255,255,224);
+        Color amarelo = new Color(255, 255, 224);
         jFrameDesenho.setBackground(amarelo);
     }
 
@@ -91,11 +91,11 @@ public class FrMain extends javax.swing.JFrame {
         jFrameDesenho.setLayout(jFrameDesenhoLayout);
         jFrameDesenhoLayout.setHorizontalGroup(
             jFrameDesenhoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 815, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
         jFrameDesenhoLayout.setVerticalGroup(
             jFrameDesenhoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 198, Short.MAX_VALUE)
+            .addGap(0, 296, Short.MAX_VALUE)
         );
 
         btnPonto.setText("Ponto");
@@ -137,7 +137,7 @@ public class FrMain extends javax.swing.JFrame {
         );
         jCorPrincipalLayout.setVerticalGroup(
             jCorPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 30, Short.MAX_VALUE)
         );
 
         jCorSecundaria.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -229,7 +229,7 @@ public class FrMain extends javax.swing.JFrame {
             }
         });
 
-        btnTriangulo.setText("Triangulo");
+        btnTriangulo.setText("Pirâmide");
         btnTriangulo.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnTrianguloMouseClicked(evt);
@@ -243,87 +243,77 @@ public class FrMain extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(32, 32, 32)
+                .addComponent(btnPonto, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnReta, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnCirculo, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnRetangulo)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnBorracha, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnSpray, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnCilindro, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnPoligono, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnTriangulo, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(cbTexto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel2)
-                                        .addGap(18, 18, 18))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addGap(23, 23, 23)))
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jCorSecundaria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jCorPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(cbTexto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(122, 122, 122))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(btnPoligono, javax.swing.GroupLayout.DEFAULT_SIZE, 84, Short.MAX_VALUE)
-                                    .addComponent(btnTriangulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                        .addGap(24, 24, 24)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel2))
+                        .addGap(26, 26, 26)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jCorSecundaria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jCorPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jColorChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 784, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(btnRetangulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnSpray, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnBorracha, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnCirculo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnReta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnPonto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnCilindro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(101, 101, 101)
-                        .addComponent(jFrameDesenho, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                        .addGap(0, 11, Short.MAX_VALUE))
+                    .addComponent(jFrameDesenho, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(btnPonto)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btnPonto)
+                        .addComponent(btnReta)
+                        .addComponent(btnCirculo)
+                        .addComponent(btnRetangulo)
+                        .addComponent(btnBorracha)
+                        .addComponent(btnSpray)
+                        .addComponent(btnCilindro)
+                        .addComponent(btnPoligono)
+                        .addComponent(btnTriangulo))
+                    .addComponent(cbTexto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnReta)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnCirculo)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnRetangulo)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnBorracha)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnSpray)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnCilindro)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnPoligono)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnTriangulo)
-                .addGap(21, 21, 21)
-                .addComponent(cbTexto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jFrameDesenho, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)
-                    .addComponent(jCorPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(57, 57, 57)
-                        .addComponent(jLabel2))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jCorPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(30, 30, 30)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jCorSecundaria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel2))
+                        .addGap(109, 109, 109))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(44, 44, 44)
-                        .addComponent(jCorSecundaria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(109, 109, 109))
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jFrameDesenho, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jColorChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 339, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 34, Short.MAX_VALUE))
+                        .addComponent(jColorChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 339, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())))
         );
 
-        setBounds(0, 0, 1057, 587);
+        setBounds(0, 0, 1057, 574);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnRetaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRetaActionPerformed
@@ -351,29 +341,10 @@ public class FrMain extends javax.swing.JFrame {
             jFrameDesenho.setBackground(jCorPrincipal.getBackground());
         }
         if (opcaoSelecionada == 1) {
-            poligono.coordX.clear();
-            poligono.coordY.clear();
             ponto.corPrimaria = jCorPrincipal.getBackground();
             ponto.x = evt.getX();
             ponto.y = evt.getY();
             ponto.desenhar(jFrameDesenho.getGraphics());
-        }
-        if (opcaoSelecionada == 6) {
-            poligono.coordX.clear();
-            poligono.coordY.clear();
-            ponto.corPrimaria = jCorPrincipal.getBackground();
-            Random gerador = new Random();
-            for (int i = 0; i < 1000; i++) {
-                int numX = gerador.nextInt(30);
-                int numY = gerador.nextInt(30);
-                ponto.x = (evt.getX() - 15) + numX;
-                ponto.y = (evt.getY() - 15) + numY;
-                if ((((evt.getX()) - ponto.x) * ((evt.getX()) - ponto.x))
-                        + (((evt.getY()) - ponto.y) * ((evt.getY()) - ponto.y)) < (15 * 15)) {
-                    //(Cx - Px)^2 + (Cy - Py)^2 < Raio^2
-                    ponto.desenhar(jFrameDesenho.getGraphics());
-                }
-            }
         }
         if (opcaoSelecionada == 8) {
             ponto.corPrimaria = jCorPrincipal.getBackground();
@@ -384,51 +355,44 @@ public class FrMain extends javax.swing.JFrame {
             poligono.coordY.add(evt.getY());
             poligono.corPrimaria = jCorPrincipal.getBackground();
             poligono.corSecundaria = jCorSecundaria.getBackground();
-            poligono.desenhar(jFrameDesenho.getGraphics());
-
+            if (evt.isMetaDown()) {
+                poligono.desenhar(jFrameDesenho.getGraphics());
+                poligono.coordX.clear();
+                poligono.coordY.clear();
+            }
 
         }
     }//GEN-LAST:event_jFrameDesenhoMouseClicked
 
     private void jFrameDesenhoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jFrameDesenhoMousePressed
         if (opcaoSelecionada == 2) {
-            poligono.coordX.clear();
-            poligono.coordY.clear();
             reta.corPrimaria = jCorPrincipal.getBackground();
             reta.x = evt.getX();
             reta.y = evt.getY();
 
         }
         if (opcaoSelecionada == 3) {
-            poligono.coordX.clear();
-            poligono.coordY.clear();
             circulo.corPrimaria = jCorPrincipal.getBackground();
             circulo.corInterna = jCorSecundaria.getBackground();
             circulo.x = evt.getX();
             circulo.y = evt.getY();
         }
         if (opcaoSelecionada == 4) {
-            poligono.coordX.clear();
-            poligono.coordY.clear();
             retangulo.x = evt.getX();
             retangulo.y = evt.getY();
         }
         if (opcaoSelecionada == 5) {
-            poligono.coordX.clear();
-            poligono.coordY.clear();
             borracha.x = evt.getX();
             borracha.y = evt.getY();
         }
         if (opcaoSelecionada == 7) {
-            poligono.coordX.clear();
-            poligono.coordY.clear();
             cilindro.x = evt.getX();
             cilindro.y = evt.getY();
         }
-        
-        if(opcaoSelecionada == 9){
-            triangulo.coordX.add(evt.getX());
-            triangulo.coordY.add(evt.getY());
+
+        if (opcaoSelecionada == 9) {
+            piramide.x = evt.getX();
+            piramide.y = evt.getY();
         }
     }//GEN-LAST:event_jFrameDesenhoMousePressed
 
@@ -443,25 +407,42 @@ public class FrMain extends javax.swing.JFrame {
             borracha.corPrimaria = jFrameDesenho.getBackground();
             borracha.desenhar(jFrameDesenho.getGraphics());
         }
+        if (opcaoSelecionada == 6) {
+            poligono.coordX.clear();
+            poligono.coordY.clear();
+            ponto.corPrimaria = jCorPrincipal.getBackground();
+            Random gerador = new Random();
+            for (int i = 0; i < 50; i++) {
+                int numX = gerador.nextInt(30);
+                int numY = gerador.nextInt(30);
+                ponto.x = (evt.getX() - 15) + numX;
+                ponto.y = (evt.getY() - 15) + numY;
+                if ((((evt.getX()) - ponto.x) * ((evt.getX()) - ponto.x))
+                        + (((evt.getY()) - ponto.y) * ((evt.getY()) - ponto.y)) < (15 * 15)) {
+                    //(Cx - Px)^2 + (Cy - Py)^2 < Raio^2
+                    ponto.desenhar(jFrameDesenho.getGraphics());
+                }
+            }
+        }
     }//GEN-LAST:event_jFrameDesenhoMouseDragged
 
     private void jFrameDesenhoMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jFrameDesenhoMouseReleased
         if (opcaoSelecionada == 2) {
-            reta.showArea =cbTexto.getState();
+            reta.showArea = cbTexto.getState();
             reta.x1 = evt.getX();
             reta.y1 = evt.getY();
             reta.desenhar(jFrameDesenho.getGraphics());
         }
 
         if (opcaoSelecionada == 3) {
-            circulo.showArea =cbTexto.getState();
+            circulo.showArea = cbTexto.getState();
             circulo.raio = evt.getX() - circulo.x;
             circulo.diametro = evt.getY() - circulo.y;
             circulo.desenhar(jFrameDesenho.getGraphics());
         }
 
         if (opcaoSelecionada == 4) {
-            retangulo.showArea =cbTexto.getState();
+            retangulo.showArea = cbTexto.getState();
             retangulo.base = evt.getX() - retangulo.x;
             retangulo.largura = evt.getY() - retangulo.y;
             retangulo.corInterna = jCorSecundaria.getBackground();
@@ -470,27 +451,19 @@ public class FrMain extends javax.swing.JFrame {
         }
 
         if (opcaoSelecionada == 7) {
-            cilindro.showArea =cbTexto.getState();
+            cilindro.showArea = cbTexto.getState();
             cilindro.x1 = evt.getX();
             cilindro.y1 = evt.getY();
             cilindro.corPrimaria = jCorPrincipal.getBackground();
             cilindro.corInterna = jCorSecundaria.getBackground();
             cilindro.desenhar(jFrameDesenho.getGraphics());
         }
-        if(opcaoSelecionada == 9){
-            triangulo.showArea = cbTexto.getState();
-            triangulo.coordX.add(evt.getX());
-            triangulo.coordY.add(evt.getY());
-            int coordX = (int) triangulo.coordX.get(0);
-            triangulo.coordX.add(coordX - (evt.getX() - coordX));
-            triangulo.coordY.add(evt.getY());
-            triangulo.corPrimaria = jCorPrincipal.getBackground();
-            triangulo.corSecundaria = jCorSecundaria.getBackground();
-            triangulo.desenhar(jFrameDesenho.getGraphics());
-            triangulo.coordX.clear();
-            triangulo.coordY.clear();
-            poligono.coordX.clear();
-            poligono.coordY.clear();
+        if (opcaoSelecionada == 9) {
+            piramide.x1 = evt.getX();
+            piramide.y1 = evt.getY();
+            piramide.largura = evt.getX() - piramide.x;
+            piramide.altura = evt.getY() - piramide.y;
+            piramide.desenhar(jFrameDesenho.getGraphics());
         }
     }//GEN-LAST:event_jFrameDesenhoMouseReleased
 
