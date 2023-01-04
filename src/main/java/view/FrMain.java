@@ -408,11 +408,9 @@ public class FrMain extends javax.swing.JFrame {
             borracha.desenhar(jFrameDesenho.getGraphics());
         }
         if (opcaoSelecionada == 6) {
-            poligono.coordX.clear();
-            poligono.coordY.clear();
             ponto.corPrimaria = jCorPrincipal.getBackground();
             Random gerador = new Random();
-            for (int i = 0; i < 50; i++) {
+            for (int i = 0; i < 30; i++) {
                 int numX = gerador.nextInt(30);
                 int numY = gerador.nextInt(30);
                 ponto.x = (evt.getX() - 15) + numX;
