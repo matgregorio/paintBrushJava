@@ -19,9 +19,9 @@ public class Circulo extends D2{
     public void desenhar(Graphics g){
         super.desenhar(g);
         g.setColor(corPrimaria);
-        g.drawOval(x, y,(int) raio,(int) diametro);
+        g.drawOval(x, y,(int) raio,(int) raio);
         g.setColor(corInterna);
-        g.fillOval(x, y,(int) raio,(int) diametro);
+        g.fillOval(x, y,(int) raio,(int) raio);
     }
 
     @Override
