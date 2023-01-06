@@ -33,6 +33,7 @@ public class Piramide extends D2 {
 
     @Override
     public void desenhar(Graphics g) {
+       g.setColor(corPrimaria);
        g.drawLine(x,y,x+largura/2,y-altura);
        g.drawLine(x, y1, x+largura/2, y-altura);
        g.drawLine(x+largura, y, x+largura/2, y-altura);
